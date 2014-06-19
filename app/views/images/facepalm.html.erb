@@ -1,0 +1,13 @@
+This is facepalm page.
+
+<%= form_for @image, method: :put do %>
+  x-coordinate: <%= text_field_tag :first_name %><br />
+  y-coordinate: <%= text_field_tag :last_name %><br />
+  <%= submit_tag %>
+<% end %>
+
+<!-- 
+<form action= image_path(@image) method='put'>
+  <input name='x-coordinate' id='x-coordinate' />
+  <input name='y-coordinate' id='y-coordinate' />
+</form> -->

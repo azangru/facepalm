@@ -80,4 +80,11 @@ class ImagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #UNRESTFUL PART
+
+  def facepalm
+    @image = Image.find(params[:id])
+  end
+
 end
