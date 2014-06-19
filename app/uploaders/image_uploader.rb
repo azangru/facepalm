@@ -29,24 +29,23 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
  
  
-  # version :facepalm do
-  #   process :create_composite
-  # end
+  version :facepalm do
+    process :resize_to_fill => [400,600]
+    process :create_composite
+  end
  
-  # def create_composite
-  #   manipulate! do |img|
+  def create_composite
 
-  #     facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
-  #     facepalm = Magick::Image.read(facepalm_path).first         
+    manipulate! do |img|
+      facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
+      facepalm = Magick::Image.read(facepalm_path).first     
 
- 
-  #     # facepalm.resize_to_fill(150,220)
 
+      # facepalm.resize_to_fill(150,220)
  
- 
-  #     img.composite!(money, 0, 0, Magick::OverCompositeOp)
-  #   end
-  # end
+      img.composite!(facepalm, 0, 0, Magick::OverCompositeOp)
+    end
+  end
 
   def extension_white_list
     %w(jpg jpeg gif png)
@@ -60,9 +59,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
-    process :resize_to_fill => [50, 50]
-  end
+  # version :thumb do
+  #   process :resize_to_fill => [50, 50]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
