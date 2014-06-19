@@ -5,7 +5,7 @@ gem 'rails', '3.2.17'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 
 
 # Gems used only for assets and not required
@@ -22,17 +22,15 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Added specifically for our app
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'pry'
+gem 'pry-byebug'
+gem 'haml-rails'
+gem 'carrierwave', "0.9.0"
+gem 'rmagick'
+gem 'will_paginate', '~> 3.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :production do
+  gem 'rails_12factor'
+end
