@@ -1,13 +1,13 @@
-This is facepalm page.
+<div id="containment-wrapper">
+  <div id="player-in-containment-wrapper"> 
+    <%= image_tag @image.url.player_image %>
+  </div>
 
-<%= form_for @image, method: :put do %>
-  x-coordinate: <%= text_field_tag :first_name %><br />
-  y-coordinate: <%= text_field_tag :last_name %><br />
-  <%= submit_tag %>
-<% end %>
+  <div id="draggable3" >
+    <%= image_tag('facepalm.png') %>
+  </div>
 
-<!-- 
-<form action= image_path(@image) method='put'>
-  <input name='x-coordinate' id='x-coordinate' />
-  <input name='y-coordinate' id='y-coordinate' />
-</form> -->
+</div>
+
+<input id="facepalm-text" type="text" name="facepalm-text">
+<button type="button" id="facepalm-button">Facepalm!</button>

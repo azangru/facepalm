@@ -45,6 +45,22 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
+  # def create_composite
+
+  #   manipulate! do |img|
+  #     unless img.coordinates.nil?
+  #       facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
+  #       facepalm = Magick::Image.read(facepalm_path).first     
+        
+
+  #       coordinates = img.coordinates.split(", ")
+  #       x = coordinates[0].to_i
+  #       y = coordinates[1].to_i
+
+  #       img.composite!(facepalm, x, y, Magick::OverCompositeOp)
+  #     end
+  #   end
+  # end
 
   def extension_white_list
     %w(jpg jpeg gif png)
