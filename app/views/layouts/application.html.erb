@@ -2,14 +2,26 @@
 <html>
 <head>
   <title>Facepalm</title>
+  <link href='http://fonts.googleapis.com/css?family=Exo+2:400,900' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+  <header id="header_logo">
+    <img src="/assets/world_cup_logo.jpg" />
+  </header>
+  <nav>
+    <ul>
+      <li><%= link_to 'Create New Facepalm', new_image_path %></li>
+      <li><%= link_to 'Wall of Shame', images_path %></li>
+    </ul>
+  </nav>
   
-
-<%= yield %>
+  <div id="main">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

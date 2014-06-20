@@ -1,16 +1,49 @@
 body {
   width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Exo 2', sans-serif;
 }
 
-// .create_image {
-//   width: 400px;
-//   height: 100px;
-//   border-radius: 5%;
-//   color: yellow;
-//   background-color: green; 
-//   font-size: 28px;
-//   font-family: Helvetica;
-// }
+#header_logo img{
+  width: 80%;
+}
+
+#header_logo {
+  overflow: hidden;
+  height: 430px;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline;
+  margin: 0 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#container {
+  width: 100%;
+}
+
+h1 {
+  font-size: 48px;
+  color: #222222;
+}
+
+.table_row {
+  margin: 5px;
+}
+
+.text_input {
+  width: 400px;
+  height: 50px;
+  box-shadow: inset 2px 2px 2px 0px #dddddd;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+// Buttons
 
 .create_image {
   font-size: 3em;
@@ -19,12 +52,13 @@ body {
   font-family: Tahoma;
   margin: 0 auto;
   display: block;
-  max-width: 400px;
+  width: 40%;
   text-align: center;
   padding: 20px 30px;
   border: 1px solid #686870;
   border-radius: 100px;
-  margin-top: 130px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   color: #686870;
   
   box-shadow: 
@@ -64,6 +98,8 @@ body {
       inset 0 18px 100px #c4c4c4; 
   }
 }
+
+// End of button styling
 
 // FOR JQUERY UI
 
