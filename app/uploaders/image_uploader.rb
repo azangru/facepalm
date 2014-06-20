@@ -4,6 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
+  include Magick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -60,7 +61,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   #     end
   #   end
   # end
-
 
   def extension_white_list
     %w(jpg jpeg gif png)
