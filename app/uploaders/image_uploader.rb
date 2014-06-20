@@ -4,6 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
+  include Magick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -39,13 +40,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     manipulate! do |img|
       facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
       facepalm = Magick::Image.read(facepalm_path).first     
-
-
-      # facepalm.resize_to_fill(150,220)
  
       img.composite!(facepalm, 0, 0, Magick::OverCompositeOp)
     end
   end
+
 
   def extension_white_list
     %w(jpg jpeg gif png)

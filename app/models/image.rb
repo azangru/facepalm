@@ -1,6 +1,8 @@
 class Image < ActiveRecord::Base
   attr_accessible :text, :url
 
+  attr_accessor :user_text
+
   mount_uploader :url, ImageUploader
 
   def self.recreate_versions!
