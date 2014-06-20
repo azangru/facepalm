@@ -132,3 +132,30 @@ h1 {
 }
 
 // END OF JQUERY UI2
+
+#facepalmed-wrapper{
+  width: 400px;
+  height: 600px;
+  border-style: solid;
+  margin: 0 auto;
+}
+
+#player-in-facepalmed-wrapper{
+  z-index: 0;
+  position: absolute;
+}
+
+#facepalmed-text{
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 20px;
+  font-size: 52px;
+  font-weight: bolder;
+  font-family: Helvetica;
+  color: white;
+  text-align: center;
+  width: 100%;
+
+
+}
