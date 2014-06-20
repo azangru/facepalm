@@ -36,12 +36,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
  
   def create_composite
-
-    manipulate! do |img|
-      facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
-      facepalm = Magick::Image.read(facepalm_path).first     
- 
-      img.composite!(facepalm, 0, 0, Magick::OverCompositeOp)
+    puts model.inspect
+    if model.get_coordinates
+      x, y = model.get_coordinates.split(", ").map{|coord| coord.to_i}
+      manipulate! do |img|
+        facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
+        facepalm = Magick::Image.read(facepalm_path).first     
+        binding.pry
+        img.composite!(facepalm, x, y, Magick::OverCompositeOp)
+      end
     end
   end
 
