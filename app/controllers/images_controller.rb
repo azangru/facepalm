@@ -63,14 +63,20 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if @image.save
         Image.recreate_versions!
-        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
+        redirect_to @image
+        # redirect_to facepalmed_image_path(@image)
       end
     end
   end
+
+# THE FOLLOWING LINES ARE FROM THE STANDARD SCAFFOLDING CODE OF UPDATE (inside the respond_to section)        
+      #   format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+      #   format.json { head :no_content }
+      # else
+      #   format.html { render action: "edit" }
+      #   format.json { render json: @image.errors, status: :unprocessable_entity }
+
+
 
   # DELETE /images/1
   # DELETE /images/1.json
@@ -87,6 +93,10 @@ class ImagesController < ApplicationController
   #UNRESTFUL PART
 
   def facepalm
+    @image = Image.find(params[:id])
+  end
+
+  def facepalmed
     @image = Image.find(params[:id])
   end
 
