@@ -1,0 +1,31 @@
+// FOR JQUERY UI
+
+#containment-wrapper{
+  width: 400px;
+  height: 600px;
+  border-style: solid;
+  margin: auto;
+}
+
+.draggable {
+  width: 150px;
+  height: 150px;
+  padding: 0.5em;
+}
+
+#draggable3{
+  position: absolute;
+}
+
+.ui-widget-content{
+  z-index: 1;   
+  float: right;
+  background-color: rgba(255, 255, 255, 0)
+}
+
+#player-in-containment-wrapper{
+  z-index: 0;
+  position: absolute;
+}
+
+// END OF JQUERY UI

@@ -57,9 +57,12 @@ class ImagesController < ApplicationController
   # PUT /images/1.json
   def update
     @image = Image.find(params[:id])
+    @image.text = params[:text]
+    @image.coordinates = params[:coordinates]
 
     respond_to do |format|
-      if @image.update_attributes(params[:image])
+      if @image.save
+        Image.recreate_versions!
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,3 +91,22 @@ class ImagesController < ApplicationController
   end
 
 end
+
+
+
+
+# the original update method:
+
+#   def update
+#     @image = Image.find(params[:id])
+
+#     respond_to do |format|
+#       if @image.update_attributes(params[:image])
+#         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+#         format.json { head :no_content }
+#       else
+#         format.html { render action: "edit" }
+#         format.json { render json: @image.errors, status: :unprocessable_entity }
+#       end
+#     end
+#   end

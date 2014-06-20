@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  attr_accessible :text, :url
+  attr_accessible :text, :url, :coordinates
 
   mount_uploader :url, ImageUploader
 
