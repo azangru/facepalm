@@ -16,17 +16,17 @@ function sendCoordinates(e){
     var text = $('#facepalm-text').val();
     id = parseInt(window.location.pathname.replace(/\/images\//g, "")).toString();
     url = "/images/" + id;
+    redirect_url = "/images/" + id + "/facepalmed"
     $.ajax({
       url: url,
       type: "PUT",
       data: {
         coordinates: getCoordinates(),
         text: text},
-      dataType: "json"
-      // success: function(){
-      //   getPosts();
-      //   togglePages("#all_posts");
-      // }
+      dataType: "json",
+      complete: function(){
+        window.location = redirect_url;
+      }
     });
 };
 

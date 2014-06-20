@@ -58,14 +58,14 @@ class ImagesController < ApplicationController
   def update
     @image = Image.find(params[:id])
     @image.text = params[:text]
-    @image.coordinates = params[:coordinates]
+    @image.set_coordinates params[:coordinates]
 
-    respond_to do |format|
-      if @image.save
-        Image.recreate_versions!
-        redirect_to @image
-        # redirect_to facepalmed_image_path(@image)
-      end
+    if @image.save
+      # Image.recreate_versions!
+      @image.instance_recreate_versions!
+      render nothing: true
+      # redirect_to facepalmed_image_path(@image)
+      # redirect_to facepalmed_image_path(@image)
     end
   end
 
