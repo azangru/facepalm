@@ -42,7 +42,6 @@ class ImageUploader < CarrierWave::Uploader::Base
       manipulate! do |img|
         facepalm_path =  File.join(Rails.root, "app/assets/images/facepalm.png")
         facepalm = Magick::Image.read(facepalm_path).first     
-        binding.pry
         img.composite!(facepalm, x, y, Magick::OverCompositeOp)
       end
     end
